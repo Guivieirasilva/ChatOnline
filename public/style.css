@@ -1,0 +1,40 @@
+body{
+    background-color: #1D1C19;
+}
+form#user_form{
+    margin: auto;
+
+}
+#messages{
+    width: 500px;
+    height: 600px;
+    background-color: gray;
+    margin-bottom: 15px;
+    color: white;
+    list-style: none;
+    text-decoration: none;
+
+}
+#message li{
+    list-style: none;
+}
+#message, #user{
+    width: 400px;
+    height: 20px;
+    background-color: rgba(128, 128, 128, 0.404);
+    font-size: large;
+    letter-spacing: 2px;
+    color: rgba(255, 255, 255, 0.74);
+}
+button{
+    width: 90px;
+    height: 30px;
+    background-color: #633BBC;
+    color: white;
+    font-size: large;
+    letter-spacing: 1px;
+    transition: .5s;
+}
+button:hover, button:focus{
+    background-color:#8257E6 ;
+}
