@@ -3,10 +3,12 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const socketIo = require('socket.io');
-const messages = [];
+const messages = {grupo1:[], grupo2:[]}
 
 
-app.use('/', express.static(path.join(__dirname, 'public')))
+app.use('/grupo1', express.static(path.join(__dirname, 'public')))
+app.use('/grupo2', express.static(path.join(__dirname, 'public')))
+
 
 const server = app.listen(PORT , () => {
     
@@ -16,17 +18,28 @@ const server = app.listen(PORT , () => {
 
 const io = socketIo(server);
 
-io.on("connection", (socket) => {
-
+const grupo1 = io.of('/grupo1').on('connection', (socket) => {
     console.log('New Connection');
-    socket.emit('Update_messages', messages)
+    socket.emit('Update_messages', messages.grupo1)
 
 
     socket.on('new_message', (data) => {
-        messages.push(data)
+        messages.grupo1.push(data)
         console.log(messages);
-        io.emit('Update_messages', messages)
+        grupo1.emit('Update_messages', messages.grupo1)
 
     })
+})
 
-});
+const grupo2 = io.of('/grupo2').on('connection', (socket) => {
+    console.log('New Connection');
+    socket.emit('Update_messages', messages.grupo2)
+
+
+    socket.on('new_message', (data) => {
+        messages.grupo2.push(data)
+        console.log(messages);
+        grupo2.emit('Update_messages', messages.grupo2)
+
+    })
+})

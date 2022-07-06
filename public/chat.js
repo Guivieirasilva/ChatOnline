@@ -1,5 +1,5 @@
-
-const socket = io('http://localhost:3000');
+const room = window.location.pathname.replace(/\//g, '')
+const socket = io(`http://localhost:3000/${room}`);
 
 let user = null
 
@@ -18,7 +18,8 @@ const updateMessagesOnScreen = (messages) => {
 
     messages.forEach(message => {
         list_messages += 
-        `<li style='font-size:larger;                     font-weight:bold; 
+        `<li style='font-size:larger;                     
+        font-weight:bold; 
         letter-spacing: 1px; 
         color: #B7DDF5 ;' >
         ${message.user}:

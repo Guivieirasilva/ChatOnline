@@ -4,23 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../assets/img/icons8-bate-papo-24.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
     <title>Chat</title>
 </head>
 <body>
-    <form name="user_form_name" id="user_form">
-        <input name="user" id="user" type="text" placeholder="Digite seu usuário">
-        <button type="submit">Definir</button>
-    </form>
-
-    <div id="messages">
-        <p></p>
+    <div id="container">
+        <form name="user_form_name" id="user_form">
+            <input name="user" id="user" type="text" placeholder="Digite seu usuário">
+            <button type="submit">Definir</button>
+        </form>
+        <div id="messages">
+            <p></p>
+        </div>
+        
+        <form name="message_form_name" id="message_form">
+            <input name="msg" id="message" type="text"  placeholder="Digite sua mensagem">
+            <button type="submit">Enviar</button>
+        </form>
     </div>
-    
-    <form name="message_form_name" id="message_form">
-        <input name="msg" id="message" type="text"  placeholder="Digite sua mensagem">
-        <button type="submit">Enviar</button>
-    </form>
 
 
     <script src="/socket.io/socket.io.js"></script>
